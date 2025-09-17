@@ -84,13 +84,38 @@ bpush.forEach(button => {
             newImg.classList.toggle("imgDisplay");
             displayCont.appendChild(newImg); 
         }
-        let text = event.target.textContent;
 
-        let display = document.createElement("div"); 
-        display.textContent = text; 
-        display.classList.toggle("textDisplay");
-        displayCont.appendChild(display);
-        console.log(text);
+        else if (event.target.id == "multiplication") {
+            let newImg = document.createElement('img'); 
+            newImg.src = 'multiplication.svg'; 
+            newImg.classList.toggle("imgDisplay");
+            displayCont.appendChild(newImg); 
+        }
+
+
+        else if (event.target.id == "addition") {
+            let newImg = document.createElement('img'); 
+            newImg.src = 'addition-sign.png'; 
+            newImg.classList.toggle("imgDisplay");
+            displayCont.appendChild(newImg); 
+        }
+
+
+        else if (event.target.id == "sub") {
+            let newImg = document.createElement('img'); 
+            newImg.src = 'minus.svg'; 
+            newImg.classList.toggle("imgDisplay");
+            displayCont.appendChild(newImg); 
+        }
+
+        else {
+            let number = event.target.textContent; 
+            let text = document.createElement('div'); 
+            text.textContent = number; 
+            text.classList.toggle("textDisplay"); 
+            displayCont.appendChild(text); 
+        }
+
 
     })
 })
