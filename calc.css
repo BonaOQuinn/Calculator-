@@ -35,8 +35,14 @@ body{
 }
 
 .head-items {
+    display: flex;
+    flex-direction: row;
     padding-right: 40px;
     padding-bottom: 20px
+}
+
+.textDisplay {
+    font-size: medium;
 }
 
 .button {
