@@ -56,7 +56,9 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     gap: 2px; 
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     height: 21px; 
     width: 450px;
 }
