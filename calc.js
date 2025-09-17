@@ -78,12 +78,19 @@ let displayCont = document.querySelector(".head-items");
 
 bpush.forEach(button => {
     button.addEventListener("click", event => {
+        if (event.target.id == "division") {
+            let newImg = document.createElement('img'); 
+            newImg.src = 'division.svg'; 
+            newImg.classList.toggle("imgDisplay");
+            displayCont.appendChild(newImg); 
+        }
         let text = event.target.textContent;
 
         let display = document.createElement("div"); 
         display.textContent = text; 
         display.classList.toggle("textDisplay");
         displayCont.appendChild(display);
+        console.log(text);
 
     })
 })
