@@ -108,6 +108,18 @@ bpush.forEach(button => {
             displayCont.appendChild(newImg); 
         }
 
+        else if (event.target.textContent == "clear") {
+            let removeImgs = document.querySelectorAll('.imgDisplay'); 
+            removeImgs.forEach(image => {
+                displayCont.removeChild(image); 
+            })
+
+            let removeText = document.querySelectorAll('.textDisplay'); 
+            removeText.forEach(text => {
+                displayCont.removeChild(text); 
+            })
+        }
+
         else {
             let number = event.target.textContent; 
             let text = document.createElement('div'); 
