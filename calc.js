@@ -41,19 +41,20 @@ function division(num1, num2) {
 returns num1 (op) num2
 */
 
+let result; 
 function operator(op, num1, num2) {
     switch (op) {
         case "+":
-            return num1 + num2; 
+            result = num1 + num2; 
             break; 
         case "-": 
-            return num1 - num2; 
+            result = num1 - num2; 
             break; 
         case "*": 
-            return num1 * num2;
+            result = num1 * num2;
             break; 
         case "/": 
-            return num1 / num2; 
+            result = num1 / num2; 
             break;
         default: 
             return "INVALID"; 
@@ -73,6 +74,17 @@ psuedo:
 -add elements to head-items
 */
 
+
+/* 
+implement operator function 
+
+
+*/
+
+let num1 = 0; 
+let num2 = 0; 
+let op = null; 
+
 let bpush = document.querySelectorAll(".button");
 let displayCont = document.querySelector(".head-items"); 
 
@@ -83,6 +95,7 @@ bpush.forEach(button => {
             newImg.src = 'division.svg'; 
             newImg.classList.toggle("imgDisplay");
             displayCont.appendChild(newImg); 
+            op = "/"; 
         }
 
         else if (event.target.id == "multiplication") {
@@ -90,6 +103,7 @@ bpush.forEach(button => {
             newImg.src = 'multiplication.svg'; 
             newImg.classList.toggle("imgDisplay");
             displayCont.appendChild(newImg); 
+            op = "*"; 
         }
 
 
@@ -98,6 +112,7 @@ bpush.forEach(button => {
             newImg.src = 'addition-sign.png'; 
             newImg.classList.toggle("imgDisplay");
             displayCont.appendChild(newImg); 
+            op = "+"; 
         }
 
 
@@ -106,6 +121,7 @@ bpush.forEach(button => {
             newImg.src = 'minus.svg'; 
             newImg.classList.toggle("imgDisplay");
             displayCont.appendChild(newImg); 
+            op = "-"; 
         }
 
         else if (event.target.textContent == "clear") {
@@ -126,8 +142,27 @@ bpush.forEach(button => {
             text.textContent = number; 
             text.classList.toggle("textDisplay"); 
             displayCont.appendChild(text); 
+
+            if (num1 != 0) {
+                num2 = text.textContent; 
+                num2 = +num2;
+            }
+            else {
+                num1 = text.textContent; 
+                num1 = +num1
+            }
         }
 
+        operator(op, num1, num2); 
+
+
+        let resultDisplay = document.createElement("div"); 
+        resultDisplay.textContent = result; 
+        resultDisplay.classList.toggle("textDisplay"); 
+        displayCont.appendChild(resultDisplay); 
+        
+
+ 
 
     })
 })
