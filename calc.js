@@ -109,6 +109,7 @@ bpush.forEach(button => {
         else if(event.target.id === 'neg') {
             let negSign = document.createElement("div"); 
             negSign.textContent = "-"; 
+            negSign.classList.toggle('head-items'); 
             displayCont.prepend(negSign);
         }
 
