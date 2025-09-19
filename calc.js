@@ -45,6 +45,11 @@ let displayCont = document.querySelector(".head-items");
 
 bpush.forEach(button => {
     button.addEventListener("click", event => {
+        button.classList.toggle('pushed');
+        setTimeout(() => {
+            button.classList.remove('pushed'); 
+        }, 65);
+
         const value = event.target.textContent;
 
         // operator buttons
@@ -95,10 +100,20 @@ bpush.forEach(button => {
             displayCont.textContent = ""; // clear old
             let resultDisplay = document.createElement("div"); 
             resultDisplay.textContent = result; 
-            resultDisplay.classList.add("textDisplay"); 
+            resultDisplay.classList.add("head-items"); 
             displayCont.appendChild(resultDisplay);
 
             equal = true; 
+        }
+
+        else if(event.target.id === 'neg') {
+            let negSign = document.createElement("div"); 
+            negSign.textContent = "-"; 
+            displayCont.prepend(negSign);
+        }
+
+        else if(event.target.id === 'back') {
+            displayCont.textContent = displayCont.textContent.slice(0, -1);
         }
 
         // number buttons
