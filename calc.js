@@ -39,6 +39,7 @@ let num2 = null;
 let op = null; 
 let equal = false; 
 let result = null;
+let resultDisplay = null;
 
 let bpush = document.querySelectorAll(".button");
 let displayCont = document.querySelector(".head-items"); 
@@ -98,10 +99,11 @@ bpush.forEach(button => {
             result = operator(op, num1, num2);
 
             displayCont.textContent = ""; // clear old
-            let resultDisplay = document.createElement("div"); 
+            resultDisplay = document.createElement("div"); 
             resultDisplay.textContent = result; 
             resultDisplay.classList.add("head-items"); 
             displayCont.appendChild(resultDisplay);
+            
 
             equal = true; 
         }
@@ -119,7 +121,15 @@ bpush.forEach(button => {
 
         // number buttons
         else {
+            if (resultDisplay && resultDisplay.textContent === "INVALID") {
+                displayCont.removeChild(resultDisplay); 
+                resultDisplay = null; // reset reference
+                displayCont.textContent += value; // append number to screen
+
+            }
+            else {
             displayCont.textContent += value; // append number to screen
+            }
         }
     })
 });
