@@ -75,15 +75,10 @@ psuedo:
 */
 
 
-/* 
-implement operator function 
-
-
-*/
-
-let num1 = 0; 
-let num2 = 0; 
+//variables for operator implementation
+let num1 = null;
 let op = null; 
+let equal = false; 
 
 let bpush = document.querySelectorAll(".button");
 let displayCont = document.querySelector(".head-items"); 
@@ -136,6 +131,11 @@ bpush.forEach(button => {
             })
         }
 
+        else if (event.target.id == "equal") {
+            equal = true; 
+        }
+
+
         else {
             let number = event.target.textContent; 
             let text = document.createElement('div'); 
@@ -143,23 +143,40 @@ bpush.forEach(button => {
             text.classList.toggle("textDisplay"); 
             displayCont.appendChild(text); 
 
-            if (num1 != 0) {
-                num2 = text.textContent; 
-                num2 = +num2;
-            }
-            else {
-                num1 = text.textContent; 
-                num1 = +num1
-            }
+            
+
         }
 
-        operator(op, num1, num2); 
+        /* 
+            possible big fix: 
 
+            -create num1 variable as global variable 
+            -create bool equal
+            -set num1 = nothing
+            -initialize equal to false 
+            -change equal to true when equal button is clicked 
+            after else 
+            update num1 with text display
+            - if num1 != null: 
+            set num2 = text displayed 
+            -operator should already be chosen
+        */
+
+
+
+        num1 = text.textContent
+        if (num1 != null) {
+            let num2 = text.textContent; 
+            while (equal == true) {
+                operator(op, num1, num2); 
+            }
+
+        }
 
         let resultDisplay = document.createElement("div"); 
         resultDisplay.textContent = result; 
         resultDisplay.classList.toggle("textDisplay"); 
-        displayCont.appendChild(resultDisplay); 
+        displayCont.appendChild(resultDisplay);
         
 
  
